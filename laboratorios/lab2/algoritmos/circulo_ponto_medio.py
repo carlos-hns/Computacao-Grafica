@@ -1,12 +1,12 @@
 def pontosDoCirculo(raio, centro):
     pontos = []
 
-    x = centro[0]
-    y = centro[1] + raio
+    x = 0
+    y = raio
 
     # valorPontoMedio == d na dedução
     d = 1 - raio
-    pontos.extend(pontosDoCirculoPorSimetria(x, y))
+    pontos.extend(pontosDoCirculoPorSimetria(x, y, centro))
 
     while(y > x):
         if(d < 0):
@@ -17,22 +17,20 @@ def pontosDoCirculo(raio, centro):
         
         x += 1
 
-        # + centerPoint[0]
-        # + centerPoint[1]
-        pontos.extend(pontosDoCirculoPorSimetria(x, y))
+        pontos.extend(pontosDoCirculoPorSimetria(x, y, centro))
 
     return pontos
 
-def pontosDoCirculoPorSimetria(x, y):
+def pontosDoCirculoPorSimetria(x, y, centro):
     points = []
 
-    points.append((x, y))
-    points.append((x, -y))
-    points.append((-x, y))
-    points.append((-x, -y))
-    points.append((y, x))
-    points.append((y, -x))
-    points.append((-y, x))
-    points.append((-y, -x))
+    points.append((x + centro[0], y + centro[1]))
+    points.append((x + centro[0], -y + centro[1]))
+    points.append((-x + centro[0], y + centro[1]))
+    points.append((-x + centro[0], -y + centro[1]))
+    points.append((y + centro[0], x + centro[1]))
+    points.append((y + centro[0], -x + centro[1]))
+    points.append((-y + centro[0], x + centro[1]))
+    points.append((-y + centro[0], -x + centro[1]))
 
     return points

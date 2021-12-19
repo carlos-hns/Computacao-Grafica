@@ -14,11 +14,8 @@ def onLeftClick(event):
 
     pontosCirculo = pontosDoCirculo(20, (event.x, event.y))
     for ponto in pontosCirculo:
-        pontoTranformado = transformarPonto(ponto, 200)
-        print("Ponto", ponto)
-        print("Ponto transformao", pontoTranformado)
-        imagem.put(pixel, (20,20))
-        #imagem.put(pixel, (pontoTranformado[0], pontoTranformado[1]))
+        if((0 <= ponto[0] <= 200) and (0 <= ponto[1] <= 200)):
+            imagem.put(pixel, (ponto[0], ponto[1]))
         
 
 def transformarPonto(ponto, valorMaximoY):
