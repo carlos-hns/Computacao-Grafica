@@ -1,18 +1,14 @@
 from tkinter import *
-from algoritmos.circulo_ponto_medio import pontosDoCirculo
+from algoritmos.circulo import Circulo
 
 def onLeftClick(event):
     pixel = (  # Definição do grupo de pixeis
-        ("blue", "blue", "blue", "blue", "blue"),
-        ("blue", "blue", "blue", "blue", "blue"),
-        ("blue", "blue", "blue", "blue", "blue"),
-        ("blue", "blue", "blue", "blue", "blue"),
-        ("blue", "blue", "blue", "blue", "blue")
+        ("blue")
     )
     
     print("Event:", event)
 
-    pontosCirculo = pontosDoCirculo(20, (event.x, event.y))
+    pontosCirculo = Circulo.pontosDoCirculoTrigonometrico(20, (event.x, event.y))
     for ponto in pontosCirculo:
         if((0 <= ponto[0] <= 200) and (0 <= ponto[1] <= 200)):
             imagem.put(pixel, (ponto[0], ponto[1]))
