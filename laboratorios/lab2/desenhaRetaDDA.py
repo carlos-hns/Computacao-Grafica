@@ -7,13 +7,16 @@ y1 = 0
 x2 = 0
 y2 = 0
 
-def desenhaReta(event):
+def desenhaRetaDDA(event):
     global click_number
     global x1, y1
+    pixel = (  # Definição do grupo de pixeis
+        ("blue", "blue")
+    )
     if click_number == 0:
         x1 = event.x
         y1 = event.y
-        imagem.put("black", (int(x1), int(y1)))
+        imagem.put(pixel, (int(x1), int(y1)))
         click_number = 1
     else:
         x2 = event.x
@@ -28,15 +31,14 @@ def desenhaReta(event):
             len = dy
             
         xinc = dx/float(len)
-        yinc = dy/float(len)
-
-        imagem.put("black", (int(x1), int(y1)))        
+        yinc = dy/float(len) 
+               
         for i in range(int(len)):
             x1 = x1 + xinc
             y1 = y1 + yinc
-            imagem.put("black", (int(x1), int(y1)))
+            imagem.put(pixel, (int(x1), int(y1)))
 
-            print("Ponto ({}, {}):".format(x1, y1))
+            print("Ponto (x = %.3f, y = %.3f)"%(x1, y1))
         
         click_number = 0
 
@@ -44,9 +46,9 @@ window = Tk()
 window.title("Desenho da reta usando o algoritmo DDA")
 window.resizable(False, False)
 
-imagem = PhotoImage(width=200,height=200)
+imagem = PhotoImage(width=400,height=400)
 tela = Label(window, image=imagem)
-tela.bind("<Button-1>", desenhaReta)
+tela.bind("<Button-1>", desenhaRetaDDA)
 tela.pack()
 
 window.mainloop()
