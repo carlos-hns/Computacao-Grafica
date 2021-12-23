@@ -7,7 +7,7 @@ alturaTela = 400
 x1 = 0 #int(input("Valor x1 : "))
 y1 = alturaTela #int(input("Valor Y1 : "))
 x2 = larguraTela #int(input("Valor x2 : "))
-y2 = alturaTela/2 #int(input("Valor Y2 : "))
+y2 = alturaTela #int(input("Valor Y2 : "))
 start = (x1, y1)
 end = (x2, y2)
 
