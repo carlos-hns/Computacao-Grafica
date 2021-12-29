@@ -1,4 +1,3 @@
-import sys
 from tkinter import *
 
 from algoritmos.circulo import Circulo
@@ -51,7 +50,7 @@ def selecionarAlgoritmo(entrada, ponto):
         case '7':
             print("Fim do programa.")
         case _:
-            sys.exit("Valor de entrada inválido. Fim do programa.")
+            print("Valor de entrada inválido. Fim do programa.")
 
 print("Inicio do programa:")
 entrada = input(
